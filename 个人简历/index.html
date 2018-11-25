@@ -84,13 +84,111 @@
   
         </footer>
       </div>
-      <a class="button" href="#">简历下载</a>
-      <p>
+      <div class="buttoninner">
+        <a class="button" href="#">下载 PDF简历</a>
+      </div>
+      <p class="selfintroduction">
+        黄长陵，前端学习者。现在在饥人谷进行系统的学习
+        <br>技能：html基础、css基础
   
       </p>
-
-
     </main>
+    <section class="skills">
+      <h2>技能</h2>
+      <ol class="clearfix">
+        <li>
+          <h3>
+              HTML5;CSS3
+          </h3>
+          <div class="progressBar">
+            <div class="progress">
+            </div>
+          </div>
+        </li>
+        <li>
+            <h3>
+                Javascript
+            </h3>
+            <div class="progressBar">
+              <div class="progress">
+              </div>
+            </div>
+          </li>
+          <li>
+              <h3>
+                  jQuery
+              </h3>
+              <div class="progressBar">
+                <div class="progress">
+                </div>
+              </div>
+            </li>
+            <li>
+                <h3>
+                    React.js
+                </h3>
+                <div class="progressBar">
+                  <div class="progress">
+                  </div>
+                </div>
+              </li>
+              <li>
+                  <h3>
+                      Vue.js
+                  </h3>
+                  <div class="progressBar">
+                    <div class="progress">
+                    </div>
+                  </div>
+                </li>
+                <li>
+                    <h3>
+                        Node.js
+                    </h3>
+                    <div class="progressBar">
+                      <div class="progress">
+                      </div>
+                    </div>
+                  </li>
+      </ol>
+    </section>
+    <section class="portfolio">
+      <h2>作品集</h2>
+      <nav>
+        <ol class="clearfix">
+          <li id="portfolio1">所有</li>
+          <li id="portfolio2">框架</li>
+          <li id="portfolio3">原生JS;CSS</li>
+        </ol>
+        <div id="portfoliobar" class="bar state1">
+          <div class="bar-inner">
+          </div>
+        </div>
+      </nav>
+      <script>
+        portfolio1.onclick=function(){
+          portfoliobar.className="bar state1"
+        }
+        portfolio2.onclick=function(){
+          portfoliobar.className="bar state2"
+        }
+        portfolio3.onclick=function(){
+          portfoliobar.className="bar state3"
+        }
+      </script>
+    <div class="works clearfix">
+      <div class="big">
+        <img src="./image/作品大.jpg" alt="大作品">
+      </div>
+      <div class="small1">
+        <img src="./image/作品小1.jpg" alt="小作品1">
+      </div>
+      <div class="small2"> 
+        <img src="./image/作品小2.jpg" alt="小作品2">
+      </div>
+     
+    </div>
+  </section>
   </body>
 
 
