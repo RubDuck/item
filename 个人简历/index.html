@@ -71,7 +71,7 @@
 
     </div>
     <main>
-      <div id='About' class="Usercard">
+      <div data-x  id='About' class="Usercard">
         <div class="maintext clearfix">
           <div class="picture">
             <img src="./image/touxiang.jpg" alt="头像">
@@ -125,7 +125,7 @@
   
       </p>
     </main>
-    <section id="Skills" class="skills">
+    <section data-x  id="Skills" class="skills">
       <h2>技能</h2>
       <ol class="clearfix">
         <li>
@@ -184,7 +184,7 @@
                   </li>
       </ol>
     </section>
-    <section id="Works" class="portfolio">
+    <section data-x id="Works" class="portfolio">
       <h2>作品集</h2>
       <nav>
         <ol class="clearfix">
@@ -225,15 +225,43 @@
   <script>
   setTimeout(function(){
     siteWelcome.classList.remove('active')
-  },1000)
-  
+  },50)
+
+let spacialTasgs=document.querySelectorAll('[data-x]')
+for (i=0;i<spacialTasgs.length;i++){
+  spacialTasgs[i].classList.add('offset')
+}
+setTimeout(function(){
+  yyy()
+},1000)
 window.onscroll=function(){
   if(window.scrollY>0){
     sitetopnavbar.classList.add('active')
   }
   else{
     sitetopnavbar.classList.remove('active')}
+   yyy()
 }
+function yyy(){
+      let spacialTasgs=document.querySelectorAll('[data-x]')
+    let minIndex=0
+    for(let i=1;i<spacialTasgs.length;i++){
+     if(Math.abs(spacialTasgs[i].offsetTop-window.scrollY)<Math.abs(spacialTasgs[minIndex].offsetTop-window.scrollY))
+     {
+       minIndex=i
+     }
+    }
+    console.log(minIndex)
+    spacialTasgs[minIndex].classList.remove('offset')
+    let id =spacialTasgs[minIndex].id
+    let a=document.querySelector('a[href="#'+id+'"]')
+    let li=a.parentNode
+    let brother=li.parentNode.children
+    for (let i=0;i<brother.length;i++){
+      brother[i].classList.remove('hlight')
+    }
+    li.classList.add('hlight')
+    }
 let a=document.querySelectorAll('nav.menu>ul>li')
 for (let i=0;i<a.length;i++){
   a[i].onmouseenter=function(x){
@@ -247,6 +275,11 @@ for (let i=0;i<a.length;i++){
   }
 }
 let b=document.querySelectorAll('nav.menu>ul>li>a')
+function animate(time) {
+  requestAnimationFrame(animate);
+  TWEEN.update(time);
+}
+requestAnimationFrame(animate);
 for(let i=0;i<b.length;i++){
   b[i].onclick=function(x){
     x.preventDefault()
@@ -258,14 +291,18 @@ for(let i=0;i<b.length;i++){
     let currentTop=window.scrollY
     let targetTop=top-80
     var coords={ y: currentTop};
-    console.log(1)
+    let s=targetTop-currentTop
+    var t=Math.abs((s/100)*300)
+    if(t>500){
+      t=500
+    }
     var tween = new TWEEN.Tween(coords)
-        .to({  y: targetTop}, 1000)
+        .to({  y: targetTop}, t)
       
         .easing(TWEEN.Easing.Quadratic.InOut)
       
         .onUpdate(function(){
-          console.log(4)
+         
           window.scrollTo(0,coords.y)
         })
         .start(); 
