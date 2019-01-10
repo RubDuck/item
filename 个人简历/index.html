@@ -221,6 +221,7 @@
      
     </div>
   </section>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js'></script>
   <script>
   setTimeout(function(){
     siteWelcome.classList.remove('active')
@@ -253,8 +254,21 @@ for(let i=0;i<b.length;i++){
     let href=a.getAttribute('href')
     let element=document.querySelector(href)
     let top=element.offsetTop
-    window.scrollTo(0,top-80)
 
+    let currentTop=window.scrollY
+    let targetTop=top-80
+    var coords={ y: currentTop};
+    console.log(1)
+    var tween = new TWEEN.Tween(coords)
+        .to({  y: targetTop}, 1000)
+      
+        .easing(TWEEN.Easing.Quadratic.InOut)
+      
+        .onUpdate(function(){
+          console.log(4)
+          window.scrollTo(0,coords.y)
+        })
+        .start(); 
   }
 }
 
