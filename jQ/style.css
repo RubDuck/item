@@ -1,0 +1,45 @@
+.windows{
+    width: 600px;
+    background: rgb(255,255,255);
+    margin: auto;
+    margin-top: 70px;
+    padding: 40px;
+}
+.views{
+
+    width: 500px;
+    overflow: hidden;
+    
+}
+.images{
+    display: flex;
+    vertical-align: top;
+    transition: all 0.5s;
+}
+
+.footer{
+    margin-top: 40px;
+    width: 500px;
+
+    padding: 20px;
+
+
+}
+.button{
+    text-align: center;
+    cursor:pointer;
+}
+
+span{
+
+    background: red;
+    margin-right: 30px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+
+
+
+}
