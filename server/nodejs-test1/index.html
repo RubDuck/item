@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <h5>您的账号余额是<span id ='amount' >&&&amount&&&</span></h5>
+    <button id ='button'>打钱</button>
+</head>
+<body>
+    <script>
+    button.addEventListener('click',(e)=>{
+        let script=document.createElement('script')
+        let functionName='random'+parseInt(Math.random()*1000000,10)
+        console.log(functionName)
+        window[functionName]=function(){
+            amount.innerText=amount.innerText-0-1
+        }
+        script.src='/pay?callback='+functionName
+        console.log(script.src)
+        document.body.appendChild(script)
+        script.onload=function(e){
+            e.currentTarget.remove()
+            delete window[functionName]
+        }
+        script.onerror=function(e){
+            e.currentTarget.remove()
+            delete window[functionName]
+        }
+    })
+    </script>
+    
+</body>
+</html>
