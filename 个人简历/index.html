@@ -3,37 +3,18 @@
   <head>
     <title>我的简历</title>
     <link rel="stylesheet" href="./a.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
     <script src="https://at.alicdn.com/t/font_930038_mpnwrc6t75.js"></script>
-    <style type="text/css">
-      .icon {
-         width: 1em; height: 1em;
-         vertical-align: -0.15em;
-         fill: currentColor;
-         overflow: hidden;
-      }
-      .site-welcome{
-        display: none;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width:100%;
-        height: 100%;
-        background: #888;
-        z-index: 1;
-        justify-content: center;
-        align-items: center;
-      }
-      .site-welcome.active{
-        display: flex;
-      }
-  </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
+
   </head>
   <body>
     <div id='siteWelcome' class='site-welcome active'>
         <div class="loading">
-
           </div>
     </div>
+
     <div id='sitetopnavbar' class="topnavbar">
       <div class="topinner clearfix">
         <a class="logo" href="#" alt="logo" style="float:left">
@@ -186,144 +167,41 @@
     </section>
     <section data-x id="Works" class="portfolio">
       <h2>作品集</h2>
-      <nav>
-        <ol class="clearfix">
-          <li id="portfolio1">所有</li>
-          <li id="portfolio2">框架</li>
-          <li id="portfolio3">原生JS;CSS</li>
-        </ol>
-        <div id="portfoliobar" class="bar state1">
-          <div class="bar-inner">
-          </div>
-        </div>
-      </nav>
-      <script>
-        portfolio1.onclick=function(){
-          portfoliobar.className="bar state1"
-        }
-        portfolio2.onclick=function(){
-          portfoliobar.className="bar state2"
-        }
-        portfolio3.onclick=function(){
-          portfoliobar.className="bar state3"
-        }
-      </script>
-    <div class="works clearfix">
-      <div class="big">
-        <img src="./image/作品大.jpg" alt="大作品">
+      <div id='mySlider'>
+      <div class="swiper-container">
+          <div class="swiper-wrapper">
+                <img src="./image/slider1.jpg" alt="苹果风格" class="swiper-slide">
+                <img src="./image/slider2.jpg" alt="导航键盘" class="swiper-slide"> 
+                <img src="./image/slider3.jpg" alt="画板" class="swiper-slide">
+              </div>
+          
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
       </div>
-      <div class="small1">
-        <img src="./image/作品小1.jpg" alt="小作品1">
-      </div>
-      <div class="small2"> 
-        <img src="./image/作品小2.jpg" alt="小作品2">
-      </div>
-     
+    </div>
     </div>
   </section>
+  <section class="Massages">  
+    <h2>留言</h2>
+    <ol id="messageList">
+    </ol>
+    <form id="postMassages">
+      <label for="ID">ID</label>
+      <input type="text" name="name">
+      <label for="Text">Text</label>
+      <input type="text" name="massage">
+      <input type="submit" value="提交">
+    </form>
+
+  </section>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js'></script>
-  <script>
-  setTimeout(function(){
-    siteWelcome.classList.remove('active')
-  },50)
+  <script src="./js/loading.js"></script>
+  <script src="./js/auto-slider-up.js"></script>
+  <script src="./js/topnavbar-change.js"></script>
+  <script src="./js/smoothly-navigation.js"></script>
+  <script src="./js/swiper.js"></script>
+  <script src="./js/Massages.js"></script>
 
-let spacialTasgs=document.querySelectorAll('[data-x]')
-for (i=0;i<spacialTasgs.length;i++){
-  spacialTasgs[i].classList.add('offset')
-}
-setTimeout(function(){
-  yyy()
-},1000)
-window.onscroll=function(){
-  if(window.scrollY>0){
-    sitetopnavbar.classList.add('active')
-  }
-  else{
-    sitetopnavbar.classList.remove('active')}
-   yyy()
-}
-function yyy(){
-      let spacialTasgs=document.querySelectorAll('[data-x]')
-    let minIndex=0
-    for(let i=1;i<spacialTasgs.length;i++){
-     if(Math.abs(spacialTasgs[i].offsetTop-window.scrollY)<Math.abs(spacialTasgs[minIndex].offsetTop-window.scrollY))
-     {
-       minIndex=i
-     }
-    }
-    console.log(minIndex)
-    spacialTasgs[minIndex].classList.remove('offset')
-    let id =spacialTasgs[minIndex].id
-    let a=document.querySelector('a[href="#'+id+'"]')
-    let li=a.parentNode
-    let brother=li.parentNode.children
-    for (let i=0;i<brother.length;i++){
-      brother[i].classList.remove('hlight')
-    }
-    li.classList.add('hlight')
-    }
-let a=document.querySelectorAll('nav.menu>ul>li')
-for (let i=0;i<a.length;i++){
-  a[i].onmouseenter=function(x){
-    let b=x.currentTarget
-    b.classList.add('active')
-  }
-
-  a[i].onmouseleave=function(x){
-    let b=x.currentTarget
-    b.classList.remove('active')
-  }
-}
-let b=document.querySelectorAll('nav.menu>ul>li>a')
-function animate(time) {
-  requestAnimationFrame(animate);
-  TWEEN.update(time);
-}
-requestAnimationFrame(animate);
-for(let i=0;i<b.length;i++){
-  b[i].onclick=function(x){
-    x.preventDefault()
-    let a=x.currentTarget
-    let href=a.getAttribute('href')
-    let element=document.querySelector(href)
-    let top=element.offsetTop
-
-    let currentTop=window.scrollY
-    let targetTop=top-80
-    var coords={ y: currentTop};
-    let s=targetTop-currentTop
-    var t=Math.abs((s/100)*300)
-    if(t>500){
-      t=500
-    }
-    var tween = new TWEEN.Tween(coords)
-        .to({  y: targetTop}, t)
-      
-        .easing(TWEEN.Easing.Quadratic.InOut)
-      
-        .onUpdate(function(){
-         
-          window.scrollTo(0,coords.y)
-        })
-        .start(); 
-  }
-}
-
-  </script>
   </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
