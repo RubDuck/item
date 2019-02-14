@@ -1,0 +1,11 @@
+h1{
+    padding-bottom: 10px;
+    border-bottom: 1px solid gainsboro;
+}
+p{
+    margin-bottom: 16px;
+    margin-top: 6px;
+}
+ol,ul{
+    padding-inline-start: 40px;
+}
