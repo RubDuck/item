@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="./test.js"></script>
+  
+</head>
+<body>
+
+  <h1>你的密码是：__password__</h1>
+  <script>
+    var a='已经提示了'
+    console.log(window.localStorage.getItem(a))
+    if(window.localStorage.getItem(a))
+    {
+      console.log('OK')
+    }
+    else{
+      console.log(window.localStorage.getItem(a))
+      alert('你好')
+      window.localStorage.setItem('已经提示了',true)
+    }
+  </script>
+</body>
+</html>
