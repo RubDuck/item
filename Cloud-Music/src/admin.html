@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/admin.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="page">
+        <aside class="siderbar">
+            <div class="newsong">
+            </div>
+            <div class="songLists">
+            </div>
+            <div class="upload">
+                <div id="yyy">
+                    <span id='xxx'>点击或拖曳文件</span>
+                    <p>文件大小不超过40M</p> 
+                </div>
+            </div>
+        </aside>
+        <main class="main"> 
+        </main>
+    </div>
+   
+    <div id="UploadProgress"></div>
+    <div id="FileUploaded"></div>
+    <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+    <script src="../node_modules/qiniu-js/dist/qiniu.min.js"></script>
+    <script src="../node_modules/plupload/js/plupload.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script>
+    var APP_ID = 'pcIjLFVSbB79I0V8RTqpKPDo-gzGzoHsz';
+    var APP_KEY = 'pFX25uMSfmRHPUdwOapIvKTJ';
+
+    AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+    });
+    var TestObject = AV.Object.extend('Song');
+    var testObject = new TestObject();
+    testObject.save({
+    name:'test',
+    singer:'test',
+    cover:'test',
+    songs:[1,2]
+    }).then(function(object) {
+    alert('LeanCloud Rocks!');
+    })
+    </script>
+    <script>
+    console.log('这是我测试的',Qiniu)
+    </script> -->
+
+
+    
+    
+
+    <script src="./js/song-form.js"></script>
+    <script src="./js/song-list.js"></script>
+    <script src="./js/upload-song.js"></script>
+    <script src="./js/new-song.js"></script>
+</body>
+</html>
