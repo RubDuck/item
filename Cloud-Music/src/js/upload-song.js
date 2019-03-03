@@ -1,10 +1,9 @@
 {
 
-
     let view={
         el:'.upload',
-        find:(selector)=>{
-            return $(this.el).find(selector)
+        find(selector){
+            return $(this.el).find(selector)[0]
         }
        
     }
@@ -15,11 +14,12 @@
         init(view,module){
             this.view=view
             this.module=module
+            this.initqiniu()
         },
         initqiniu(){
             var uploader = Qiniu.uploader({
                 runtimes: 'html5',     
-                browse_button: this.view.find('xxx'),     
+                browse_button: this.view.find('#xxx'),     
                 uptoken_url:'http://localhost:8080/uptoken' ,   
                 
                 domain: 'http://pnoe8bs5p.bkt.clouddn.com/',     // bucket 域名，下载资源时用到，如：'http://xxx.bkt.clouddn.com/' **必需**
@@ -27,7 +27,7 @@
                 max_file_size: '40mb',             // 最大文件体积限制
             
                 dragdrop: true,                     // 开启可拖曳上传
-                drop_element: this.view.find('yyy'),          // 拖曳上传区域元素的 ID，拖曳文件或文件夹后可触发上传
+                drop_element: this.view.find('#yyy'),         // 拖曳上传区域元素的 ID，拖曳文件或文件夹后可触发上传
                 chunk_size: '4mb',                  // 分块上传时，每块的体积
                 auto_start: true,                   // 选择文件后自动上传，若关闭需要自己绑定事件触发上传,
             
@@ -50,6 +50,13 @@
                              var domain = up.getOption('domain');
                              var response = JSON.parse(info.response);
                              var sourceLink = domain +"/"+ encodeURIComponent(response.key)
+                             window.eventHub.emit('upload',{
+                                 "Songname":response.key,
+                                 "Link":sourceLink
+                             })
+
+                            
+                             
                    
              
                     },

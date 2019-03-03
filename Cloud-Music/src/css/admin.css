@@ -9,6 +9,7 @@ body{font-size: 15px; line-height: 1.5}
 
 .page .siderbar{width: 200px;display: flex;flex-direction: column}
 .page .siderbar .newSong{padding: 10px;border-bottom: 1px solid black;text-align: center}
+.page .siderbar .newsong.active{background: #d4d4d4}
 .page .siderbar .songLists{flex-grow: 1}
 .page .siderbar .songList li{padding: 8px;border-bottom: 1px solid #ddd;}
 .page .siderbar .songList li.active{background: #d4d4d4}
