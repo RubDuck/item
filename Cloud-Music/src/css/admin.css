@@ -18,7 +18,7 @@ body{font-size: 15px; line-height: 1.5}
 
 .page .main{flex: 1;background: #d4d4d4;}
 .page .main .form{padding: 20px;}
-.page .main .form .title{padding: 10px;font-size: 20px;font-weight: 600}
+.page .main h1{padding: 10px;font-size: 20px;font-weight: 600}
 .page .main .form .row{padding: 10px;display: flex;}
 .page .main .form label{width: 40px;}
 .page .main .form input{font-size: inherit;border-radius: 5px;border: 1px solid #ddd}

@@ -39,7 +39,7 @@
                     },
                     'BeforeUpload': function(up, file) {
                            // 每个文件上传前,处理相关的事情
-                    },
+                    },    
                     'UploadProgress': function(up, file) {
                         UploadProgress.textContent='上传中'
                            // 每个文件上传时,处理相关的事情
@@ -50,10 +50,12 @@
                              var domain = up.getOption('domain');
                              var response = JSON.parse(info.response);
                              var sourceLink = domain +"/"+ encodeURIComponent(response.key)
-                             window.eventHub.emit('upload',{
-                                 "Songname":response.key,
-                                 "Link":sourceLink
+                             window.eventHub.emit('new',{
+                                 "name":response.key,
+                                 "link":sourceLink,
+                                 "id":''
                              })
+
 
                             
                              
