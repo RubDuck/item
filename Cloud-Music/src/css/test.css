@@ -1,0 +1,53 @@
+*{margin: 0;padding: 0}
+*{box-sizing: border-box}
+ul,li{list-style: none}
+a{text-decoration: none}
+body{font-size: 15px; line-height: 1.5}
+
+
+
+
+/****body*****/
+
+.page{display: flex;justify-content: center;align-items: center;height: 100vh}
+
+.border{display: flex; height: 600px;width: 1000px;border: 1px solid red}
+
+.siderbar{display: flex; flex-direction: column;justify-content: center;width: 200px;height: 100%;background:rgb(225,227,229,0.3);border: 1px solid  #E1E3E5;}
+.siderbar .portrait{margin-top: 30px}
+.siderbar .portrait .port{ height: 55px;width: 55px;border: 1px solid red;border-radius: 50%;margin: auto;margin-bottom: 36px;}
+.siderbar .portrait span {text-align: center;display: block;margin-bottom: 15px;    }
+.siderbar .songLists{flex-grow: 1;cursor: pointer;}
+.siderbar .songLists li {padding: 10px;border-bottom: 1px solid #ddd;}
+.siderbar .songLists  li.active{background: rgb(49,194,124,0.7)}
+
+.siderbar .newsong{background: rgb(241,241,241);cursor: pointer;}
+.siderbar .newsong.active{background: rgb(49,194,124,0.7);cursor: pointer;}
+.siderbar .newsong span {display: inline-block;margin-bottom: 20px;padding: 10px;}
+.main{}
+
+.main .mainbar{overflow: hidden;height: 160px;width: 800px;background:rgb(225,227,229,0.3);}
+.main .mainbar span{display: block;margin-top:70px;margin-left: 28px;font-size: 150%}
+.main .mainbar .setlist{display: flex;cursor: pointer;}
+.main .mainbar .setlist li{margin-left: 28px;margin-top: 25px;height:32px } 
+.main .mainbar .setlist .up.active{border-bottom: 2px solid green;color: green}
+.main .mainbar .setlist .modify.active{border-bottom: 2px solid green;color: green}
+
+
+.main .upload{display: flex;justify-content: center;align-items: center;width: 800px;height: 375px;border-bottom: 1px solid #ddd;visibility: visible;}
+.main .upload #yyy{}
+.main .upload #yyy #xxx{font-size: 80%;padding: 8px 14px;border: 1px solid #ddd;border-radius: 2px;}
+.main .upload #yyy p{margin: auto;font-size: 85%;margin-top: 17px;}
+
+
+.Song-form{display: flex;justify-content: center;align-items: center;width: 800px;height: 375px;border-bottom: 1px solid #ddd;margin-top: -375px;visibility: hidden;}
+.Song-form .form{padding: 20px;border: 2px dashed #ddd; border-radius: 5px;}
+.Song-form h1{padding: 10px;font-size: 20px;font-weight: 600}
+.Song-form .form .row{padding: 15px;display: flex;}
+.Song-form .form .row input{height: 30px;}
+.Song-form .form label{width: 40px;}
+.Song-form .form input{font-size: inherit;border-radius: 5px;border: 1px solid #ddd}
+.Song-form .form button{padding-left:  10px;padding-right: 10px;margin-left: 40px;height: 30px;width: 194px;}
+
+
+
