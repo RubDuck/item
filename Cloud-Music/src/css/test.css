@@ -19,7 +19,7 @@ body{font-size: 15px; line-height: 1.5}
 .siderbar .portrait span {text-align: center;display: block;margin-bottom: 15px;    }
 .siderbar .songLists{flex-grow: 1;cursor: pointer;}
 .siderbar .songLists li {padding: 10px;border-bottom: 1px solid #ddd;}
-.siderbar .songLists  li.active{background: rgb(49,194,124,0.7)}
+.siderbar .songLists  li.actives{background: rgb(49,194,124,0.7)}
 
 .siderbar .newsong{background: rgb(241,241,241);cursor: pointer;}
 .siderbar .newsong.active{background: rgb(49,194,124,0.7);cursor: pointer;}
@@ -27,7 +27,9 @@ body{font-size: 15px; line-height: 1.5}
 .main{}
 
 .main .mainbar{overflow: hidden;height: 160px;width: 800px;background:rgb(225,227,229,0.3);}
-.main .mainbar span{display: block;margin-top:70px;margin-left: 28px;font-size: 150%}
+.main .mainbar span{display: block;margin-left: 28px;font-size: 150%}
+.main .mainbar span.upmusic{visibility: visible;margin-top: 70px;}
+.main .mainbar span.edmusic{visibility: hidden;margin-top: -33px}
 .main .mainbar .setlist{display: flex;cursor: pointer;}
 .main .mainbar .setlist li{margin-left: 28px;margin-top: 25px;height:32px } 
 .main .mainbar .setlist .up.active{border-bottom: 2px solid green;color: green}
@@ -48,6 +50,44 @@ body{font-size: 15px; line-height: 1.5}
 .Song-form .form label{width: 40px;}
 .Song-form .form input{font-size: inherit;border-radius: 5px;border: 1px solid #ddd}
 .Song-form .form button{padding-left:  10px;padding-right: 10px;margin-left: 40px;height: 30px;width: 194px;}
+
+@keyframes loading{
+    0% {
+      transform: scale(1.0);
+    }
+    100% {
+      transform: scale(0.1);
+    }
+  }
+  .site-loading{
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0,0,0,0.2);
+    pointer-events: none;
+  }
+  .site-loading.active{
+    visibility: visible;
+  }
+  .site-loading::before{
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    border-radius: 50%;
+    animation: loading 1s infinite alternate-reverse;
+    animation-timing-function: linear;
+  }
 
 
 

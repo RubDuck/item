@@ -6,7 +6,11 @@
         }
     }
 
-    let module = {}
+    let module = {
+        data: {
+            status: 'open'
+          }
+    }
     let controller = {
         init(view, module) {
             this.view = view
@@ -29,14 +33,21 @@
                         plupload.each(files, function (file) {
                         });
                     },
-                    'BeforeUpload': function (up, file) {
+                    'BeforeUpload':(up, file)=> {
+                        window.eventHub.emit('beforeUpload')
+                    if(this.module.data.status === 'closed'){
+                    return false
+                    }else{
+                    this.module.data.status = 'closed'
+                    return true
+                    }
                     },
                     'UploadProgress': function (up, file) {
                         
                     },
-                    'FileUploaded': function (up, file, info) {
-                        alert('ok')
-                     
+                    'FileUploaded':  (up, file, info)=> {
+                        window.eventHub.emit('afterUpload')
+                        this.module.data.status = 'open'
                         var domain = up.getOption('domain');
                         var response = JSON.parse(info.response);
                         var sourceLink = domain + "/" + encodeURIComponent(response.key)

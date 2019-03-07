@@ -1,3 +1,4 @@
+
 {
     let view = {
         el: '.songLists',
@@ -9,27 +10,34 @@
         render(data) {
             $(this.el).html(this.template)
             let { songs, selectSongId } = data
+          
             let songList = songs.map((song) => {
                 let $li = $("<li></li>").text(song.name).attr('data-song-id', song.id)
+           
                 if (song.id === selectSongId) {
-                    $li.addClass('active')
+                    $li.addClass('actives')   
                 }
+            
                 return $li
             })
+    
+   
+    
             $(this.el).find('ul').empty()
             songList.map((list) => {
                 $(this.el).find('ul').append(list)
             })
         },
         clearActive() {
-            $('li').removeClass('active')
+       
+            $('li').removeClass('actives')
         },
     }
 
     let module = {
         data: {
             songs: [],
-            selectSongId: 'ok'
+            selectSongId: ''
         },
         find() {
             let query = new AV.Query('Song');
@@ -52,7 +60,6 @@
         },
         getsong() {
             return this.module.find().then(() => {
-                console.log(66666666666,this.module.data)
                 this.view.render(this.module.data)
             })
         },
@@ -69,17 +76,19 @@
                         break
                     }
                 }
-                console.log(data,111111111)
                 window.eventHub.emit('modify', data)
-                window.eventHub.emit('select', songId)
+                window.eventHub.emit('status',this.module.data.selectSongId)
             })
         },
         bindEventHub() {
             window.eventHub.on('new', (data) => {
+                console.log('tttttttt')
                 this.view.clearActive()
             })
             window.eventHub.on('addList', (e) => {
                 this.module.data.songs.push(e)
+                this.module.data.selectSongId=e.id
+        
                 this.view.render(this.module.data)
             })
             window.eventHub.on('update', (e) => {

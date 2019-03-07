@@ -1,3 +1,5 @@
+
+
 {
     let view = {
         el: '.Song-form',
@@ -78,8 +80,7 @@
                 needs.map((dat) => {
                     data[dat] = $(this.view.el).find(`[name='${dat}']`).val()
                 })
-                console.log(data,111111111111)
-                console.log(this.module.data,22222222)
+
                 if (this.module.data.id) {
                     this.update()
                 }
@@ -90,8 +91,11 @@
         },
         createdata(data) {
             this.module.create(data).then((e) => {
+               
                 let copy = JSON.stringify(this.module.data)
                 let string = JSON.parse(copy)
+                this.view.render(string)
+              
                 window.eventHub.emit('addList', string)
             })
         },
@@ -117,11 +121,11 @@
                     this.view.render(this.module.data)
                 }
                 else {
-                    senectid = this.module.data.id
-                    if (senectid) {
-                        data = { name: '', link: '', id: '' }
+                    // senectid = this.module.data.id
+                    // if (senectid) {
+                    //     data = { name: '', link: '', id: '' }
                         this.view.render(data)
-                    }
+                    // }
                 }
             })
         }

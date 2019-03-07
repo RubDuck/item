@@ -7,7 +7,7 @@
            </div>
         `,
         render() {
-            console.log(1)
+
             $(this.el).html(this.template)
         },
         active() {
@@ -33,18 +33,21 @@
         },
         bindEvent() {
             $(this.view.el).on('click', () => {
-                console.log(this.module.data,33333333)
-                window.eventHub.emit('new',this.module.data)
+                let data={ 'name': '', 'link': '', 'id': '' }
+                window.eventHub.emit('new',data)
+                window.eventHub.emit('status',this.module.data.id)
             })
         },
         bindEventHub() {
             window.eventHub.on('new', (data) => {
                 this.view.active()
             })
-            window.eventHub.on('select', (data) => {
+            window.eventHub.on('addList', (data) => {
+             
                 this.view.deactive()
             })
-            window.eventHub.on('updata', (data) => {
+            window.eventHub.on('modify', (data) => {
+                this.view.deactive()
             })
         }
     }
