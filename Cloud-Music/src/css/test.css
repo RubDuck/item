@@ -11,7 +11,7 @@ body{font-size: 15px; line-height: 1.5}
 
 .page{display: flex;justify-content: center;align-items: center;height: 100vh}
 
-.border{display: flex; height: 600px;width: 1000px;border: 1px solid red}
+.border{display: flex; height: 600px;width: 1000px;border: 1px solid #ddd;box-shadow: 0px 0px 5px rgb(0,0,0,0.2)}
 
 .siderbar{display: flex; flex-direction: column;justify-content: center;width: 200px;height: 100%;background:rgb(225,227,229,0.3);border: 1px solid  #E1E3E5;}
 .siderbar .portrait{margin-top: 30px}
