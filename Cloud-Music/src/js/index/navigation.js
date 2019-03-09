@@ -28,6 +28,18 @@
         init(view){
             this.view=view
             this.view.render()
+            this.bindevent()
+        },
+        bindevent(){
+            console.log(2)
+            $(this.view.el).on('click','.nav',(e)=>{
+                let tag=$(e.currentTarget).children('div')
+                needname=tag.attr('class').split(' ')[0]
+                $(e.currentTarget).children('div').addClass('active')
+                $(e.currentTarget).siblings().children('div').removeClass('active')
+                $(`#${needname}`).addClass('active').siblings().removeClass('active')
+                
+            })
         }
     }
     controller.init(view)

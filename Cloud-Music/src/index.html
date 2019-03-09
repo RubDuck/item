@@ -9,75 +9,37 @@
     <script src="../node_modules/qiniu-js/dist/qiniu.min.js"></script>
     <script src="../node_modules/plupload/js/plupload.min.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://at.alicdn.com/t/font_1078880_yk2uxsouvff.js"></script>
     <title>网易云音乐</title>
 </head>
 <body>
     <div class="page">
         <div class="m-home">
             <div class="m-topbar">
+                <div class="topfix"></div>
             </div>
             <div class="m-content">
-                <div class="navigation">
+                <div class="navigation"></div>
+                <div class="tableremed active" id="recommed">
+                    <div class="tableitem">
+                        <div class="remd">
+                        <div class="remd-1"><h2>推荐歌单</h2></div>
+                        <div class="remd-songs"></div>
+                        <div class="remd-2"><p>最新音乐</p></div>
+                        <div class="remd-newsongs">
+                            <div class="newlist">
+                                <ul class="newsonglist">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer">enene </div>
+                        </div>
+                    </div>
                 </div>
-        <div class="tableitem">
-            <div class="remd">
-            <div class="remd-1"><h2>推荐歌单</h2></div>
-            <div class="remd-songs">
-                <div class="songlist">
-                    <div class="image">
-                        <div class="imagebox"><img src="./image/song.webp" alt=""></div>
-                            
-                            <p>或许 生活的本质就是在黑暗中寻找光芒</p>
-                    </div>
-                    <div class="image">
-                        <div class="imagebox"><img src="./image/song.webp" alt=""></div>
-                            
-                            <p>或许 生活的本质就是在黑暗中寻找光芒</p>
-                    </div>
-                    <div class="image">
-                        <div class="imagebox"><img src="./image/song.webp" alt=""></div>
-                            
-                            <p>或许 生活的本质就是在黑暗中寻找光芒</p>
-                    </div>
+            <div class="tablehotsong" id="hotsong">11111111</div>
+            <div class="tablesearch" id='search'>22222222</div>
             
                 </div>
-                <div class="songlist2">
-                        <div class="image">
-                            <div class="imagebox"><img src="./image/song.webp" alt=""></div>
-                                
-                                <p>或许 生活的本质就是在黑暗中寻找光芒</p>
-                        </div>
-                        <div class="image">
-                            <div class="imagebox"><img src="./image/song.webp" alt=""></div>
-                                
-                                <p>或许 生活的本质就是在黑暗中寻找光芒</p>
-                        </div>
-                        <div class="image">
-                            <div class="imagebox"><img src="./image/song.webp" alt=""></div>
-                                
-                                <p>或许 生活的本质就是在黑暗中寻找光芒</p>
-                        </div>
-                
-                    </div>
-               
-            </div>
-            <div class="remd-2">
-                <p>最新音乐</p>
-            </div>
-           
-            <div class="remd-newsongs">
-                <div class="newlist">
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
-                </div>
-            </div>
-            <div class="footer"></div>
-            </div>
-        </div>
-        </div>
 
 
 
@@ -89,6 +51,10 @@
 
 
     </div>
+    <script src="./event-hub.js"></script>
+    <script src="./js/initial/av.js"></script>
     <script src="./js/index/navigation.js"></script>
+    <script src="./js/index/remd-songs.js"></script>
+    <script src="./js/index/remd-newsongs.js"></script>
 </body>
 </html>

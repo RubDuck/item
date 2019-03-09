@@ -23,7 +23,7 @@
     
    
     
-            $(this.el).find('ul').empty()
+            // $(this.el).find('ul').empty()
             songList.map((list) => {
                 $(this.el).find('ul').append(list)
             })
