@@ -47,7 +47,7 @@ h1,h2,h3,h4,h5,h6{ font-weight: normal; }
 .tableitem  .remd-newsongs .newsonglist .main-song{margin-left: 10px;display: flex;border-bottom: 1px solid #E2E2E3}
 .tableitem .remd-newsongs .newsonglist .player{margin-left: auto;display:flex;align-items: center;width: 42px}
 
-.tableitem .footer{height: 100px;border: 1px solid red;}
+/* .tableitem .footer{height: 100px;border: 1px solid red;} */
 
 #recommed{display: none}
 #recommed.active{display: block}

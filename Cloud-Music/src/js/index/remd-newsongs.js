@@ -11,18 +11,22 @@
                         <use xlink:href="#icon-sq"></use>
                         </svg>
                     </div>
-                    <div class='player'>
+                    <div class='player' >
+                        <a class='button' href='./song.html?id=__id__'>
                         <svg class="icon2" aria-hidden="true">
                             <use xlink:href="#icon-bofang"></use>
                             </svg>
+                        </a>
                     </div>
                 </div>
     `,
     render(data){
         let { songs} = data  
         songs.map((list) => {
-            let li=this.temple.replace('__songname__',list.name)
+            console.log(list.id)
+            let li=this.temple.replace('__songname__',list.name).replace('__id__',list.id)
             $('.newsonglist').append(li)
+        
         })
     }
 }
@@ -51,7 +55,6 @@
         },
         getsong() {
             return this.module.find().then(() => {
-                console.log(this.module.data)
                 this.view.render(this.module.data)
             })
         }
