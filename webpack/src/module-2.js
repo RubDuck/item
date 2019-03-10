@@ -1,4 +1,4 @@
 function fn(){
-console.log(2)
+console.log(1)
 }
 export default fn
