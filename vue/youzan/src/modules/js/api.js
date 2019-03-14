@@ -1,6 +1,9 @@
 let url={
     hotLists:'search/list',
-    banner:'index/banner'
+    banner:'index/banner',
+    topList:'category/topList',
+    subList:'category/subList',
+    rankList:'category/rank'
 }
 
 let host = 'http://rap2api.taobao.org/app/mock/7058/'
