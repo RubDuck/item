@@ -2,7 +2,7 @@
 
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swp-page swiper-slide" v-for='list in lists'>
+            <div class="swp-page swiper-slide" v-for='list in bannerlists'>
               <a class="js-no-follow"  v-bind:href="list.clickUrl">
                 <img class="goods-main-photo fadeIn" :src="list.img">
               </a>
@@ -11,8 +11,7 @@
           </div>
             <div class="swiper-pagination"></div>  
         </div>
-     
-    
+         
 </template>
 
 
@@ -37,7 +36,7 @@ import 'swiper/dist/css/swiper.min.css'
 import 'swiper/dist/js/swiper.min.js'
 export default{
 props:{
-  lists:{
+  bannerlists:{
     type:Array,
     required: true
 

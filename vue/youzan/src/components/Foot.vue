@@ -1,10 +1,8 @@
 <template>
  <div class="bottom-nav">
- <ul>
-      <li><a href=""><i class="icon-home"></i><div>有赞</div></a></li>
-      <li><a href=""><i class="icon-category"></i><div>分类</div></a></li>
-      <li><a href=""><i class="icon-cart"></i><div>购物车</div></a></li>
-      <li><a href=""><i class="icon-user"></i><div>我</div></a></li>
+ <ul> 
+      <li v-for='(list,index) in massage' :class='{active:index==curtIndex}' @click='change(list,index)' ><a ><i :class="list.icon"></i><div>{{list.name}}</div></a></li>
+
     </ul>
 </div>
 
@@ -12,11 +10,35 @@
 
 <script>
 
+let massage=[
+  {name:'有赞',icon:'icon-home',href:'./index.html'},
+  {name:'分类',icon:'icon-category',href:'./category.html'},
+  {name:'购物车',icon:'icon-cart',href:'./cart.html'},
+  {name:'我',icon:'icon-user',href:'./member.html'}
+]
+
+let now=location.href.split('=')[1]
+
+export default{
+data(){
+  return{
+      massage,
+      curtIndex:now|0
+  }
+},
+create(){
+  this.change()
+},
+
+methods:{
+  change(list,index){
+    location.href=`${list.href}?index=${index}`
+  }
+
+
+}
+
+}
+
 
 </script>
-
-
-<style>
-
-
-</style>
