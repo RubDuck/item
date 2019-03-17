@@ -20,7 +20,8 @@
   <!-- 针对LCD液晶显示器设计，可提高文字的清晰度 -->
   <meta http-equiv="cleartype" content="on">
   <link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico">
-  <link rel="stylesheet" href="./index.js">
+  
+<script src="./index.js"></script>
   <title>发现朋友圈的推荐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- <link rel="stylesheet" href="./css/common.css">
@@ -66,10 +67,10 @@
         <ul class="js-list js-lazy" data-src=""
         v-infinite-scroll="getlist"
         infinite-scroll-disabled="loading"
-        infinite-scroll-distance="4">
+        infinite-scroll-distance="10">
           <li v-for='list in lists':key='list.id'>
             <div class="goods-item">
-              <a href="https://h5.youzan.com/v2/showcase/goods?alias=2fwig6rnqfq6m&amp;source=yzapp&amp;f_platform=yzapp">
+              <a :href="'./goods.html'+'?keyword='+list.id">
                 <div class="thumb img-box">
                   <img class="fadeIn" v-bind:src='list.img'>
                 </div>
@@ -88,6 +89,7 @@
   </div>
    <foot></foot>
 </div>
+
 </body>
 
 </html>

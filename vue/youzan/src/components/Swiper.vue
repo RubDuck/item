@@ -1,5 +1,4 @@
 <template>
-
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <div class="swp-page swiper-slide" v-for='list in bannerlists'>
@@ -9,7 +8,7 @@
             </div>
             
           </div>
-            <div class="swiper-pagination"></div>  
+       <div class="swiper-pagination"></div>
         </div>
          
 </template>
@@ -27,9 +26,6 @@
 </style>
 
 
-
-
-
 <script>
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
@@ -44,8 +40,11 @@ props:{
 },
 mounted(){
   new Swiper ('.swiper-container', {
-        pagination:'.swiper-pagination',
-        loop:true
+        loop:true,
+        pagination: {
+    el: '.swiper-pagination',
+  },
+    
   })
 }
 }

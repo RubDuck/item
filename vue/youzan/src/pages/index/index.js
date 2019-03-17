@@ -16,7 +16,7 @@ let app =new Vue({
     data:{
         lists:null,
         pageNum:0,
-        pageSize:8,
+        pageSize:6,
         loading:false,
         allloaded:false,
         banner:null
