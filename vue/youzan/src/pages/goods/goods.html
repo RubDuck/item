@@ -283,7 +283,7 @@
           <dd class="sku-quantity-contaienr">
             <dl class="clearfix">
               <div class="quantity">
-                <button class="minus disabled" type="button" disabled="true" ></button>
+                <button class="minus" type="button" disabled="true" :class={disabled:minnum} ></button>
                 <input type="text" class="txt" pattern="[0-9]*" :value="num">
                 <button class="plus" type="button"></button>
                 <div class="response-area response-area-minus" @click='goodsnum(-1)'></div>

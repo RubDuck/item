@@ -26,8 +26,10 @@ let app=new Vue({
         id:'',
         choosetatus:'',
         goodshow:false,
+        minnum:true,
         num:1,
         add:false,
+        
         success:'none'
     },
     created(){
@@ -71,8 +73,8 @@ let app=new Vue({
             this.goodshow=false
         },
         goodsnum(a){
+    
         
-            console.log(this.num)
             if(a>0){
                 this.num+=1
             }
@@ -81,10 +83,15 @@ let app=new Vue({
                     return
                 }
                 else{
+                    this.minnum=false
                     this.num-=1
                 }
             }
-          
+            if(this.num<2){
+                this.minnum=true
+            }else{
+                this.minnum=false
+            }
             
         },
         addgoods(){
