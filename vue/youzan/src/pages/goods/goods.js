@@ -73,8 +73,7 @@ let app=new Vue({
             this.goodshow=false
         },
         goodsnum(a){
-    
-        
+            console.log(1)
             if(a>0){
                 this.num+=1
             }
