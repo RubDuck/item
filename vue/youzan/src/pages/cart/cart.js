@@ -6,6 +6,7 @@ import './cart_trade.css'
 import Vue from 'vue'
 import url from 'js/api.js'
 import axios from 'axios'
+import Cart from 'js/cartServer.js'
 
 
 
@@ -87,20 +88,23 @@ let app= new Vue({
         edit(list){
             list.edit=!list.edit
         },
-        goodsnum(a,b){
-            if(a>0){
-                b.number+=1
-             
-            }
-            else{
-                if(b.number<2){
+        addgoods(goods){
+            Cart.add(goods.id).then( goods.number+=1)
+        },
+        reducegoods(goods){
+            Cart.reduce(goods.id).then(res=>{
+                if (goods.number==1){
                     return
                 }
                 else{
-                    b.number-=1
+                    goods.number-=1
                 }
-            }
+            })        
         },
+        updatagoods(goods){
+           Cart.updata(goods.id,goods.number)
+        },
+       
         removegood(goodsList,goodsindex,shopindex){
             
             axios.post(url.cartrmList,{id:goodsList[goodsindex].id}).then(res=>{
@@ -115,26 +119,32 @@ let app= new Vue({
         let arr=[]
         this.cartlist.forEach((cart,index1)=>{
             cart.goodsList.forEach((e,index)=>{
-                if(this.rmall==true){
-                    console.log(111111111)
-                    this.cartlist.splice(0,this.cartlist.length)
+                if(e.checked==true){
+                    arr.push(e.id)
                 }
-                if(this.cartlist[index1].rmchecked==true){
-                    this.cartlist.splice(index1,1)
-                }
-                else{
-                    if(e.rmchecked==true){
-                        this.cartlist[index1].goodsList.splice(index,1)
-                    }
-                }
-                })
-               
+            })
         })
+            console.log(arr)
    
         axios.post(url.cartrmList,{id:arr}).then(res=>{
-            
+            this.cartlist.forEach((cart,index1)=>{
+                cart.goodsList.forEach((e,index)=>{
+                    if(this.rmall==true){
+                        this.cartlist.splice(0,this.cartlist.length)
+                    }
+                    else if(this.cartlist[index1].rmchecked==true){
+                        this.cartlist.splice(index1,1)
+                    }
+                    else{
+                        for( let i = this.cartlist[index1].goodsList.length - 1; i >= 0; i--){ 
+                            if(this.cartlist[index1].goodsList[i].rmchecked==true){    
+                                this.cartlist[index1].goodsList.splice(i,1)
+                            }
+                        }
+                    }
+                    })     
+            })   
         })
-       
     }
     },
     computed:{

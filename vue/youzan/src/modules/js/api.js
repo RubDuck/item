@@ -8,7 +8,15 @@ let url={
     detailsList:'goods/details',
     dealList:'goods/deal',
     cartList:'cart/list',
-    cartrmList:'cart/remove'
+    cartrmList:'cart/remove',
+    addgoods:'cart/add',
+    reducegoods:'cart/reduce',
+    updatagoods:'cart/update',
+    addressList:'address/list',
+    addressDefault:'address/setDefault',
+    addressAdd:'address/add',
+    addressDelate:'address/remove',
+    addressUpdate:'address/update'
 }
 
 let host = 'http://rap2api.taobao.org/app/mock/7058/'
