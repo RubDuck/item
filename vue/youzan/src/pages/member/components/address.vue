@@ -1,7 +1,7 @@
 <template>
 <div class="container " style="min-height: 597px;">
     <div class="block-list address-list   section section-first js-no-webview-block">
-      <a class="block-item js-address-item address-item"  :class="{active:list.id==id.id}"  @click='editor(list)' v-for=' list in addresslist' >
+      <a class="block-item js-address-item address-item"   @click='editor(list)' v-for=' list in lists' :class="{active:list.isDefault}" >
         <div class="address-title">{{list.name}} {{list.tel}}</div>
         <p>{{list.provinceName}}{{list.cityName}}{{list.districtName}}{{list.address}}</p>
         <a class='address_edit' >修改</a>
@@ -18,32 +18,22 @@
 
 
 <script>
-import fetch from 'js/fetch.js'
-import url from 'js/api.js'
-import axios from 'axios'
-
-
 
 export default{
-  data(){
-    return{
-      addresslist:'',
-      id:'',
-    }
-    },
+ computed:{
+   lists:function(){
+  
+     return this.$store.state.lists
+   }
+ },
   created(){
-    this.id=this.$route.query
-    this.getaddressList()
+    this.$store.dispatch('initAction')
   },
   methods:{
     editor(message){
         this.$router.push({name:'edit', query: { status: 'modify',instance:message}})
     },
-    getaddressList(){
-      axios.get(url.addressList).then(res=>{
-        this.addresslist=res.data.lists
-      })
-    }
+ 
   }
 }
 

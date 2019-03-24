@@ -1,7 +1,10 @@
 import fetch from 'js/fetch.js'
 import url from 'js/api.js'
+import Axios from 'axios';
 
 class Member{
+    static init(){
+        return Axios.get(url.addressList)};
    static add(data){
         return fetch(url. addressAdd,{
             data

@@ -18,6 +18,14 @@ export default{
         citydata:require('./address.json')
       }
     },
+   computed:{
+     lists(){
+      console.log(2222,this.$store.lists,333333)
+      return this.$store.lists
+      
+     }
+
+   },
     created(){
       this.getmessage()
     },
@@ -35,29 +43,29 @@ export default{
       let{address,cityValue,districtValue,name,tel,provinceValue}=this
       let data={address,cityValue,districtValue,name,tel,provinceValue}
       if(this.status=='add'){
-        Member.add(data).then(res=>{
-          this.$router.push({name:'address',query: { id: this.id }})
-        })
+        this.$store.dispatch('addAction',data)
+        this.$router.go(-1)
+        // Member.add(data).then(res=>{
+        //   // this.$router.push({name:'address',query: { id: this.id }})
+        //   this.$router.go(-1)
+        // })
       }
       if(this.status=='modify'){
-        Member.updata(data).then(res=>{
-          this.$router.push({name:'address',query: { id: this.id }})
-        })
+        this.$store.dispatch('modifyAction',data)
+        this.$router.go(-1)
+
       }
+      
     },
     deldate(){
       if(this.status=='modify'){
-        Member.remove(this.id).then(
-          res=>{
-            this.$router.push({name:'address',query: { id: this.id }})
-          }
-        )
+        this.$store.dispatch('removeAction',this.id)
+        this.$router.go(-1)
       }
     },
     setDefault(){
-      Member.setDefault(this.id).then(
-        res=>{this.$router.push({name:'address',query: { id: this.id }})}
-      )
+      this.$store.dispatch('setDefaultAction',this.id)
+      this.$router.go(-1)
     }
   
     },
