@@ -90,7 +90,7 @@
         <div class="js-detail-container" style="margin-top: 10px;">
           <div class="js-tabber-container goods-detail">
             <div class="js-tabber tabber tabber-n2 clearfix orange">
-              <button :data-type="Object.keys(list)[0]" :class={active:index==currentindex} v-for='(list,index) in  description' @click='changestatus(index)'>
+              <button :data-type="Object.keys(list)[0]" :class="{active:index==currentindex}" v-for='(list,index) in  description' @click='changestatus(index)'>
                   {{Object.values(list)[0]}} </button>
        
             </div>
@@ -142,7 +142,7 @@
         </div> -->
         <div id="right-icon" class="js-right-icon " v-show='add'>
           <div class="js-right-icon-container right-icon-container clearfix">
-            <a id="global-cart" href="https://h5.youzan.com/v2/trade/cart?kdt_id=16546132" class="icon new s0" style="">
+            <a id="global-cart" href="./cart.html" class="icon new s0" style="">
               <p class="icon-img"></p>
               <p class="icon-txt">购物车</p>
             </a>
@@ -214,17 +214,6 @@
     </div>
   </div>
   <div style="position: static; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;">
-    <div id="trans-tooltip">
-      <div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div>
-      <div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div>
-      <div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div>
-      <div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div>
-      <div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div>
-      <div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div>
-      <div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div>
-      <div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div>
-      <div id="trans-content"></div>
-    </div>
     <div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div>
     <div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div>
   </div>

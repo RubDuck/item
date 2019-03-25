@@ -88,7 +88,8 @@ video {
   border: 0;
   font: inherit;
   font-size: 100%;
-  vertical-align: baseline
+  vertical-align: baseline;
+ 
 }
 
 html {
@@ -257,7 +258,7 @@ dd {
 }
 
 .c-black {
-  color: #333 !important
+  color: gray
 }
 
 .c-yellow {

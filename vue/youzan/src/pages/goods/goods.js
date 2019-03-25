@@ -1,4 +1,3 @@
-
 import './goods.css'
 import './goods_base.css'
 import './goods_common.css'
@@ -35,12 +34,14 @@ let app=new Vue({
     created(){
         this.getdetails()
         this.getdeal()
+        
     },
  
     methods:{
         getdetails(){
             axios.get(url.detailsList).then((res)=>{
                 this.details=res.data.data
+             
                 this.banner=[]
                 this.details.imgs.forEach(function(e) {
                    let newlist={
@@ -65,7 +66,7 @@ let app=new Vue({
         },
         chooseku(type){
             this.choosetatus=type
-            console.log(type,11111111111)
+     
             this.goodshow=true
 
         },
