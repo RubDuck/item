@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./style.css">
+	<title>我的导航</title>
+</head>
+<body>
+<header></header>
+<main >
+	<div id="js">
+	</div>
+</main>
+<footer></footer>	
+</body>
+<script>
+
+	//生成hash
+	hashA=init()
+	var keys=hashA['keys']
+	var hash =hashA['hash']
+
+    //生成键盘
+	creatboard(keys,hash)
+
+  
+    //监听用户操作		
+	lislenUser(hash)
+
+
+
+	//下面不需要看
+
+    //更新hash
+	function getlocalstorage(name){
+		return JSON.parse(localStorage.getItem(name)||'null')
+	}
+	function c(tag,attributes){
+		var element=document.createElement(tag)
+		for(var key in attributes){
+			element[key]=attributes[key]
+		}
+		return element
+	}
+
+	// 创建按钮
+	function creatbutton(id){
+		var button=c('button')
+			button.textContent="编辑"
+			button.id=id
+			button.onclick=function(allmassage){
+				var img2=allmassage.target.previousSibling
+				var massage=allmassage.target.id//massage就是用户点击的元素
+				var x=prompt('给我一个网址如：qq.com')//交互，获取输入的网址值
+				hash[massage]=x
+				img2.src="https://www."+x+"/favicon.ico"
+				img2.onerror=function(xxx){
+					xxx.target.src='https://i.loli.net/2017/11/10/5a05afbc5e183.png'
+				}
+				localStorage.setItem('name',JSON.stringify(hash))//在hash中插入新的hash值
+				console.log(hash)
+			}
+			return button
+	}
+
+	//创建图片
+	function creatimg(domin){
+		var img=c('img')
+			if(domin){
+				img.src='https://www.'+domin+'/favicon.ico'
+			}
+			else{
+				img.src='https://i.loli.net/2017/11/10/5a05afbc5e183.png'
+			}
+			img.onerror=function(xxxx){
+					xxxx.target.src='https://i.loli.net/2017/11/10/5a05afbc5e183.png'
+				}
+				return img		
+	}
+	
+	//初始化数据
+	function init(){
+		var keys={
+		"0":['q','w','e','r','t','y','u','i','o','p'],
+		"1":['a','s','d','f','g','h','j','k','l'],
+		"2":['z','x','c','v','b','n','m'],
+		"length":3
+	}
+	var hash={
+		q:'qq.com',
+		w:'weibo.com',
+		e:'ele.me',
+		a:'aiqiyi.com',
+		s:'souhu.com',
+		z:'zhihu.com'
+	}
+	var hashinloclastorage=getlocalstorage("name")
+	if(hashinloclastorage){
+		hash=hashinloclastorage
+	}
+	return {
+		"keys":keys,
+		"hash":hash
+	}
+
+	}
+
+	//创建键盘
+	function creatboard(keys,hash){
+		for(var index=0;index<keys['length'];index=index+1){
+		var div1=c("div",{className:'rows'})
+
+		js.appendChild(div1)
+
+		for(var index2=0,row=keys[index];index2<row.length;index2=index2+1){
+			var div2=c('kbd',{className:'keys'})
+
+
+			var span=c('span')
+			span.textContent=row[index2]
+
+
+			var img=creatimg(hash[row[index2]])
+
+			var button=creatbutton(row[index2])
+
+			div1.appendChild(div2)
+			div2.appendChild(span)
+			div2.appendChild(img)
+			div2.appendChild(button)
+		}
+	}
+	}
+
+	//监听用户
+	function lislenUser(hash){
+		document.onkeypress=function(allmassages){ 
+		var key=allmassages['key']
+		var website=hash[key]
+		location.href="http://www."+website//(在当前页面打开)
+		// window.open("http://www."+website,'_blank')(新建页面打开)
+	}
+
+	}
+</script>
+</html>  
