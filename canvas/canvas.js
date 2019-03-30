@@ -1,3 +1,4 @@
+
 var yyy=document.getElementById('canvas')
 var context=yyy.getContext('2d')
 var linewidth=4
@@ -180,7 +181,7 @@ function listenTomouse(){
             }
             else{
             if(useerase){
-            context.clearRect(x-5,y-5,10,10)  
+            context.clearRect(x-10,y-10,20,20)  
             }
             else{
             var newpoint={"x":x,"y":y}
