@@ -1,0 +1,78 @@
+*{
+    margin: 0px;
+}
+#js{
+    text-align: center;
+    background: rgb(255, 255,255,0.15);
+    padding: 10px;
+    border-radius: 8px;
+}
+body{
+    background: #515254 url(./image/wall.jpg) no-repeat center center;
+    height: 100vh;
+    background-size: cover;
+}
+main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+kbd{
+    border: 1px solid red;
+    display: inline-block;
+    width: 4em;
+    height: 4em;
+    text-transform: uppercase;
+    position: relative;
+
+}
+#js kbd button{
+    position:absolute;
+    right: 0px;
+    bottom: 0px;
+    font-size: 1px;
+    border: none;
+    background-color:transparent;
+    color: white;
+    display: none;
+
+}
+#js  kbd:hover button{
+    display: inline-block;
+}
+.keys{
+    width: 50px;
+    height: 38px;
+    background: linear-gradient(to bottom, #242424 0%,#090909  100%);
+    border: 1px solid #373737;
+    color: #D2D1D2;
+    border-radius: 5.5px;
+    box-shadow: 0px 0px 0px 2px #2B2C2D ,0px 0px 0px 1px #515254,0 3px 0 2px #080808;
+    margin: 0px 8px;
+    font-family: Helvetica;
+}
+.rows{
+    margin: 18px 0px ;
+}
+.rows:nth-child(2){
+    margin-left: -22px;
+}
+.rows:nth-child(3){
+    margin-left: -80px;
+}
+kbd img{
+    width:16px;
+    height: 16px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+
+}
+kbd span{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}

@@ -1,0 +1,192 @@
+canvas{
+    background:white;
+    position: relative;
+    
+
+}
+ol li{
+    list-style: none;
+    margin-bottom: 10px
+}
+
+body{
+    margin: 0px;
+    overflow: hidden;
+}
+.actions{
+   width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    padding: 20px;
+
+    background: rgb(133,225,238,0.2)
+    
+}
+
+.actions svg{
+width: 1.5em;
+height: 1.5em;
+ }
+
+ .actions svg#erase,svg#del,svg#download{
+     margin-left: 60px
+ }
+
+ .actions svg.active{
+     fill:red;
+     transform: scale(1.5);
+     transition: 0.3s;
+
+ }
+.title{float: right;margin-right: 10%; 
+    color: #E8676B;
+    font-size: 24px;
+    font-family: "Arial Black";}
+
+
+
+
+ .set{
+   
+     position: fixed;
+     top: 100px;
+     width: 100%;
+     height: 100%;
+    
+
+
+ }
+ .colors{
+     border: 1px solid gray;
+     padding: 10px;
+     border-radius: 5px;
+     float: left;
+     margin-left: 1%
+
+ }
+ .colors .color{
+    width: 20px;
+    height: 20px; 
+    border: 2px solid rgb(161,163,166,0.8);
+ 
+ }
+ .colors #black{
+    background: black;
+}
+
+ .colors #red{
+    background: red;
+     
+ }
+ .colors #yellow{
+    background: yellow;
+}
+.colors #blue{
+    background: blue;
+}
+.colors #orange{
+    background: #FF7B00;
+}
+.colors #pink{
+    background: #FF00FF;
+}
+.colors #purple{
+    background: #7F00FF;
+}
+
+
+
+
+
+.colors li.actives{
+    transform: scale(1.1);
+     transition: 0.3s;
+}
+
+.sizes{
+   
+    float: right;
+    margin-right: 2%;
+
+
+}
+.sizes  li.size{margin:  0;}
+.size{
+    background:rgb(97, 96, 96);
+    width: 40px;
+}
+.size.active{
+    background: #E8676B
+}
+
+
+.sez{border: 1px solid gray;padding: 8px;margin-bottom: 4px;border-radius: 5px}
+.sizes #thin{
+    height: 3px;
+}
+
+.sizes #two{
+    height: 5px;
+}
+.sizes #three{
+    height: 7px;
+}
+.sizes #four{
+    height: 9px; 
+}
+
+.sizes #thick{
+
+    height: 11px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #canvas{
+height: 100vh;
+background-color: red;
+position: relativea;
+
+}
+*{
+    margin: 0px;
+} */
